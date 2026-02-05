@@ -1,4 +1,4 @@
-package com.danzzan.ticketing.api.dto;
+package com.danzzan.ticketing.api.dto.response;
 
 import com.danzzan.ticketing.persistence.entity.SystemType;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,5 @@
-package com.danzzan.ticketing.api.dto;
+package com.danzzan.ticketing.api.dto.request;
 
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -10,6 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventListResponseDTO {
-    private List<EventSummaryDTO> events;
+public class IssueTicketRequestDTO {
+    private String note;
 }

@@ -1,5 +1,6 @@
-package com.danzzan.ticketing.api.dto;
+package com.danzzan.ticketing.api.dto.response;
 
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,6 +10,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdminLogoutResponseDTO {
-    private boolean ok;
+public class EventListResponseDTO {
+    private List<EventSummaryDTO> events;
 }

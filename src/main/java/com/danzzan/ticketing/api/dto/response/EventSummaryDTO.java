@@ -1,5 +1,6 @@
-package com.danzzan.ticketing.api.dto;
+package com.danzzan.ticketing.api.dto.response;
 
+import com.danzzan.ticketing.persistence.entity.TicketingStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,14 +10,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class EventStatsResponseDTO {
+public class EventSummaryDTO {
     private Long eventId;
     private String title;
+    private String dayLabel;
     private String eventDate;
+    private TicketingStatus ticketingStatus;
     private int totalCapacity;
-    private long totalTickets;
-    private long ticketsConfirmed;
-    private long ticketsIssued;
-    private double issueRate;
-    private int remainingCapacity;
 }

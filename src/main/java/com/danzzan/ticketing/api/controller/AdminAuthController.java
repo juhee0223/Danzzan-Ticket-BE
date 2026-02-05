@@ -1,10 +1,10 @@
 package com.danzzan.ticketing.api.controller;
 
 import com.danzzan.ticketing.api.common.ApiResponse;
-import com.danzzan.ticketing.api.dto.AdminLoginRequestDTO;
-import com.danzzan.ticketing.api.dto.AdminLoginResponseDTO;
-import com.danzzan.ticketing.api.dto.AdminLogoutResponseDTO;
-import com.danzzan.ticketing.api.dto.AdminMeResponseDTO;
+import com.danzzan.ticketing.api.dto.request.AdminLoginRequestDTO;
+import com.danzzan.ticketing.api.dto.response.AdminLoginResponseDTO;
+import com.danzzan.ticketing.api.dto.response.AdminLogoutResponseDTO;
+import com.danzzan.ticketing.api.dto.response.AdminMeResponseDTO;
 import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;

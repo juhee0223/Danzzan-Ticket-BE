@@ -1,8 +1,8 @@
 package com.danzzan.ticketing.api.controller;
 
 import com.danzzan.ticketing.api.common.ApiResponse;
-import com.danzzan.ticketing.api.dto.EventListResponseDTO;
-import com.danzzan.ticketing.api.dto.EventStatsResponseDTO;
+import com.danzzan.ticketing.api.dto.response.EventListResponseDTO;
+import com.danzzan.ticketing.api.dto.response.EventStatsResponseDTO;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;

@@ -1,9 +1,9 @@
 package com.danzzan.ticketing.api.service;
 
-import com.danzzan.ticketing.api.dto.AdminLoginRequestDTO;
-import com.danzzan.ticketing.api.dto.AdminLoginResponseDTO;
-import com.danzzan.ticketing.api.dto.AdminLogoutResponseDTO;
-import com.danzzan.ticketing.api.dto.AdminMeResponseDTO;
+import com.danzzan.ticketing.api.dto.request.AdminLoginRequestDTO;
+import com.danzzan.ticketing.api.dto.response.AdminLoginResponseDTO;
+import com.danzzan.ticketing.api.dto.response.AdminLogoutResponseDTO;
+import com.danzzan.ticketing.api.dto.response.AdminMeResponseDTO;
 
 public interface AdminAuthService {
     AdminLoginResponseDTO login(AdminLoginRequestDTO request);

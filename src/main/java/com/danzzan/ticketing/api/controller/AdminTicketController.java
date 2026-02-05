@@ -1,9 +1,9 @@
 package com.danzzan.ticketing.api.controller;
 
 import com.danzzan.ticketing.api.common.ApiResponse;
-import com.danzzan.ticketing.api.dto.IssueTicketRequestDTO;
-import com.danzzan.ticketing.api.dto.IssueTicketResponseDTO;
-import com.danzzan.ticketing.api.dto.TicketSearchResponseDTO;
+import com.danzzan.ticketing.api.dto.request.IssueTicketRequestDTO;
+import com.danzzan.ticketing.api.dto.response.IssueTicketResponseDTO;
+import com.danzzan.ticketing.api.dto.response.TicketSearchResponseDTO;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

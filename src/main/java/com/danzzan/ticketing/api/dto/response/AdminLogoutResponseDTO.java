@@ -1,4 +1,4 @@
-package com.danzzan.ticketing.api.dto;
+package com.danzzan.ticketing.api.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class IssueTicketRequestDTO {
-    private String note;
+public class AdminLogoutResponseDTO {
+    private boolean ok;
 }
