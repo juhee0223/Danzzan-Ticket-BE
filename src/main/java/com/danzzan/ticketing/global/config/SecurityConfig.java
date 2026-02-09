@@ -43,7 +43,7 @@ public class SecurityConfig {
                         .requestMatchers("/user/login").permitAll()
                         .requestMatchers("/user/dku/**").permitAll()
                         .requestMatchers("/user/{signup-token}").permitAll()
-                        // 관리자 로그인은 인증 없이 접근 가능
+                        // 관리자 로그인은 인증 없이 접근 가능 (more specific path first)
                         .requestMatchers("/api/admin/auth/login").permitAll()
                         // 관리자 API는 인증 필요
                         .requestMatchers("/api/admin/**").authenticated()

@@ -22,8 +22,8 @@ import java.util.Collections;
 @RequiredArgsConstructor
 public class AdminAuthenticationFilter extends OncePerRequestFilter {
 
+    private static final AntPathMatcher PATH_MATCHER = new AntPathMatcher();
     private final AdminTokenStore adminTokenStore;
-    private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -32,8 +32,8 @@ public class AdminAuthenticationFilter extends OncePerRequestFilter {
         String requestPath = request.getRequestURI();
         
         // Only apply filter to /api/admin endpoints (except login)
-        if (pathMatcher.match("/api/admin/**", requestPath) 
-                && !pathMatcher.match("/api/admin/auth/login", requestPath)) {
+        if (PATH_MATCHER.match("/api/admin/**", requestPath) 
+                && !PATH_MATCHER.match("/api/admin/auth/login", requestPath)) {
             String token = extractToken(request);
             
             if (token != null) {
