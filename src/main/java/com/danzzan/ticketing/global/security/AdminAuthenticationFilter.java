@@ -6,11 +6,13 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
+import org.springframework.util.AntPathMatcher;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
@@ -21,6 +23,7 @@ import java.util.Collections;
 public class AdminAuthenticationFilter extends OncePerRequestFilter {
 
     private final AdminTokenStore adminTokenStore;
+    private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -29,7 +32,8 @@ public class AdminAuthenticationFilter extends OncePerRequestFilter {
         String requestPath = request.getRequestURI();
         
         // Only apply filter to /api/admin endpoints (except login)
-        if (requestPath.startsWith("/api/admin") && !requestPath.equals("/api/admin/auth/login")) {
+        if (pathMatcher.match("/api/admin/**", requestPath) 
+                && !pathMatcher.match("/api/admin/auth/login", requestPath)) {
             String token = extractToken(request);
             
             if (token != null) {
@@ -45,8 +49,15 @@ public class AdminAuthenticationFilter extends OncePerRequestFilter {
                             );
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authentication);
+                } else {
+                    // Invalid token - return 401
+                    response.setStatus(HttpStatus.UNAUTHORIZED.value());
+                    response.setContentType("application/json");
+                    response.getWriter().write("{\"success\":false,\"error\":{\"message\":\"Invalid or expired token\"}}");
+                    return;
                 }
             }
+            // If no token provided, let Spring Security handle it (will result in 401/403)
         }
         
         filterChain.doFilter(request, response);
